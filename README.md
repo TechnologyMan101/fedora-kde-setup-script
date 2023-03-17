@@ -4,7 +4,7 @@ Bash script to set up a fresh install of Fedora KDE.
 
 # Documentation
 
-Version 5.1
+Version 5.1.1
 
 Supported Fedora KDE Versions: 37
 
@@ -35,7 +35,9 @@ Change “Make Window Fullscreen” to “Meta+F11”
 
 This is to be done after running the script!!!
 
-Simple Overview Pager by tuxg0d – replace default pager in taskbar
+Simple Overview Pager by tuxg0d – replace default pager in taskbar*
+
+* Note: clicking the widget will fail to open overview unless a modification is made. Open `~/.local/share/plasma/plasmoids/SimpleOverviewPager/contents/ui/main.qml` and replace the word “qdbus” with “qdbus-qt5” using find and replace to solve the issue. 
 
 
 # Run Script:
@@ -51,3 +53,8 @@ Minimal Install is recommended. VM Tools can be found at https://mega.nz/folder/
 # Other Notes
 
 Switching to the X11 session is recommended for IBus to work properly. The session switcher is located on the login screen near the bottom left corner. 
+
+
+# User Account Switching
+
+If you use only the X11 session for all users and would like user switching to be functional, run `sudo nano /usr/share/kde-settings/kde-profile/default/xdg/kdeglobals` and comment out the “[KDE Action Restrictions]” section by adding a “#” in front of every line in the section. 
