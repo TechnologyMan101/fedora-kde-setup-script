@@ -93,9 +93,9 @@ echo "Loaded sysreqfail."
 mainmenu () {
 	clear
  	tput setaf 3
-	echo "====================================="
-	echo " --- Fedora KDE Setup Script 5.1 ---"
-	echo "====================================="
+	echo "======================================="
+	echo " --- Fedora KDE Setup Script 5.1.1 ---"
+	echo "======================================="
 	echo "Supported Fedora KDE Versions (x86_64): 37"
 	echo "Recommended Free Space: 40 GB"
 	tput setaf 10
