@@ -93,9 +93,9 @@ echo "Loaded sysreqfail."
 mainmenu () {
 	clear
  	tput setaf 3
-	echo "======================================="
-	echo " --- Fedora KDE Setup Script 5.1.1 ---"
-	echo "======================================="
+	echo "====================================="
+	echo " --- Fedora KDE Setup Script 5.2 ---"
+	echo "====================================="
 	echo "Supported Fedora KDE Versions (x86_64): 37"
 	echo "Recommended Free Space: 40 GB"
 	tput setaf 10
@@ -328,10 +328,6 @@ autofontinstall () {
 echo "Loaded autofontinstall."
 installmiscdrivers () {
 	echo "Installing miscellaneous drivers from RPM Fusion..."
-	runcheck sudo dnf swap -y mesa-va-drivers mesa-va-drivers-freeworld
-	runcheck sudo dnf swap -y mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
-	runcheck sudo dnf swap -y mesa-va-drivers.i686 mesa-va-drivers-freeworld.i686
-	runcheck sudo dnf swap -y mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686
 	runcheck sudo dnf install -y intel-media-driver libva-intel-driver nvidia-vaapi-driver
 	runcheck sudo dnf --repo=rpmfusion-nonfree-tainted install -y "*-firmware"
 }
