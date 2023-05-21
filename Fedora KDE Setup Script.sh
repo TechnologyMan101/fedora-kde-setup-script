@@ -26,8 +26,8 @@ checkcompatibility () {
 	fi
 	iskde="true"
 
-	# Check for 37
-	if ! echo $VERSION_ID | grep -qi "37"
+	# Check for 38
+	if ! echo $VERSION_ID | grep -qi "38"
 	then
 		sysreqfail
 	fi
@@ -71,7 +71,7 @@ echo "Loaded spacewarning."
 sysreqfail () {
 	clear
 	tput setaf 9
-	echo "System requirements not met. This script supports the x86_64 version of Fedora 37 KDE!!!"
+	echo "System requirements not met. This script supports the x86_64 version of Fedora 38 KDE!!!"
 	tput setaf 3
 	echo "If your error is not caused by a wrong Fedora version or OS architecture, please check to see if I have published a script for your system."
 	tput setaf 10
@@ -94,9 +94,9 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "====================================="
-	echo " --- Fedora KDE Setup Script 5.2 ---"
+	echo " --- Fedora KDE Setup Script 5.3 ---"
 	echo "====================================="
-	echo "Supported Fedora KDE Versions (x86_64): 37"
+	echo "Supported Fedora KDE Versions (x86_64): 38"
 	echo "Recommended Free Space: 40 GB"
 	tput setaf 10
 	echo "Your current distro is $PRETTY_NAME."
