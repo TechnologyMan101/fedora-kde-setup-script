@@ -4,7 +4,7 @@ Bash script to set up a fresh install of Fedora KDE.
 
 # Documentation
 
-Version 5.3
+Version 5.4
 
 Supported Fedora KDE Versions: 38
 
@@ -35,9 +35,7 @@ Change “Make Window Fullscreen” to “Meta+F11”
 
 This is to be done after running the script!!!
 
-Simple Overview Pager by tuxg0d – replace default pager in taskbar*
-
-* Note: clicking the widget will fail to open overview unless a modification is made. Open `~/.local/share/plasma/plasmoids/SimpleOverviewPager/contents/ui/main.qml` and replace the word “qdbus” with “qdbus-qt5” using find and replace to solve the issue. 
+Simple Overview Pager by tuxg0d – replace default pager in taskbar
 
 
 # Run Script:
