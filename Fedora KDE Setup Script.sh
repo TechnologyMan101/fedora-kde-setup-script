@@ -94,7 +94,7 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "====================================="
-	echo " --- Fedora KDE Setup Script 5.4 ---"
+	echo " --- Fedora KDE Setup Script 5.5 ---"
 	echo "====================================="
 	echo "Supported Fedora KDE Versions (x86_64): 38"
 	echo "Recommended Free Space: 40 GB"
@@ -213,6 +213,7 @@ full () {
 	runcheck flatpak install -y flathub org.telegram.desktop
 	runcheck flatpak install -y flathub net.lutris.Lutris
 	runcheck flatpak install -y flathub org.kde.subtitlecomposer
+	runcheck flatpak install -y flathub io.missioncenter.MissionCenter
 	runcheck flatpak update -y
 	runcheck flatpak uninstall -y --unused --delete-data
 	runcheck pip install pip wheel yt-dlp speedtest-cli mangadex-downloader[optional] animdl -U
@@ -255,6 +256,7 @@ minimal () {
 	runcheck flatpak install -y flathub com.github.muriloventuroso.pdftricks
 	runcheck flatpak install -y flathub com.github.tchx84.Flatseal
 	runcheck flatpak install -y flathub org.onlyoffice.desktopeditors
+	runcheck flatpak install -y flathub io.missioncenter.MissionCenter
 	runcheck flatpak update -y
 	runcheck flatpak uninstall -y --unused --delete-data
 	runcheck pip install pip wheel speedtest-cli -U
