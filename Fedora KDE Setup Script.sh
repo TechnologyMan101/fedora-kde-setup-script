@@ -94,7 +94,7 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "====================================="
-	echo " --- Fedora KDE Setup Script 5.6 ---"
+	echo " --- Fedora KDE Setup Script 5.7 ---"
 	echo "====================================="
 	echo "Supported Fedora KDE Versions (x86_64): 38"
 	echo "Recommended Free Space: 40 GB"
@@ -193,7 +193,6 @@ full () {
 	runcheck sudo dnf install -y rpmfusion-free-release-tainted
 	runcheck sudo dnf install -y libdvdcss
 	runcheck sudo dnf install -y rpmfusion-nonfree-release-tainted
-	runcheck sudo dnf mark -y install libfreeaptx pipewire-codec-aptx
 	runcheck flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	runcheck sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig
 	runcheck sudo dnf install -y "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
@@ -245,7 +244,6 @@ minimal () {
 	runcheck sudo dnf install -y rpmfusion-free-release-tainted
 	runcheck sudo dnf install -y libdvdcss
 	runcheck sudo dnf install -y rpmfusion-nonfree-release-tainted
-	runcheck sudo dnf mark -y install libfreeaptx pipewire-codec-aptx
 	runcheck flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	runcheck sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig
 	runcheck sudo dnf install -y "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
