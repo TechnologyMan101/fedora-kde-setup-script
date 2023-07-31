@@ -94,7 +94,7 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "====================================="
-	echo " --- Fedora KDE Setup Script 5.7 ---"
+	echo " --- Fedora KDE Setup Script 5.8 ---"
 	echo "====================================="
 	echo "Supported Fedora KDE Versions (x86_64): 38"
 	echo "Recommended Free Space: 40 GB"
