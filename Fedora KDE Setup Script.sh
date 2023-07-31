@@ -94,7 +94,7 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "====================================="
-	echo " --- Fedora KDE Setup Script 5.8 ---"
+	echo " --- Fedora KDE Setup Script 5.9 ---"
 	echo "====================================="
 	echo "Supported Fedora KDE Versions (x86_64): 38"
 	echo "Recommended Free Space: 40 GB"
@@ -196,7 +196,7 @@ full () {
 	runcheck flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	runcheck sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig
 	runcheck sudo dnf install -y "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
-	runcheck sudo dnf install -y alien remmina bleachbit frozen-bubble asunder k3b libburn cdrskin pavucontrol easyeffects solaar gparted vlc p7zip* lame gpart neofetch ffmpeg httrack tree android-tools kwave kamoso supertux dconf-editor ffmpegthumbs krita gimp htop transmission-qt qbittorrent curl git handbrake-gui minetest discord java-latest-openjdk gstreamer-plugins* gstreamer1-plugins* pip kernel-headers kernel-devel gcc glibc-headers make dkms cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kdenetwork-filesharing libsmbclient samba samba-usershares kcharselect kweather mcomix3 VirtualBox gscan2pdf supertuxkart unzip gsmartcontrol dvdstyler skanlite kdenlive kid3 skanpage kclock calibre krename filelight gnome-disk-utility viewnior
+	runcheck sudo dnf install -y alien remmina bleachbit frozen-bubble asunder k3b libburn cdrskin pavucontrol easyeffects solaar gparted vlc p7zip* lame gpart neofetch ffmpeg httrack tree android-tools kwave kamoso supertux dconf-editor ffmpegthumbs krita gimp htop transmission-qt qbittorrent curl git handbrake-gui minetest discord java-latest-openjdk gstreamer-plugins* gstreamer1-plugins* pip kernel-headers kernel-devel gcc glibc-headers make dkms cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect kweather mcomix3 VirtualBox gscan2pdf supertuxkart unzip gsmartcontrol dvdstyler skanlite kdenlive kid3 skanpage kclock calibre krename filelight gnome-disk-utility viewnior
 	javamenu
 	runcheck sudo dnf update -y --refresh
 	runcheck sudo dnf autoremove -y
@@ -224,7 +224,6 @@ full () {
 	echo "Removing Solaar autostart file..."
 	sudo rm /etc/xdg/autostart/solaar.desktop
 	appendbashrc1
-	fixsamba
 	autofontinstall
 	installmiscdrivers
 	finish
@@ -247,7 +246,7 @@ minimal () {
 	runcheck flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	runcheck sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig
 	runcheck sudo dnf install -y "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
-	runcheck sudo dnf install -y alien pavucontrol gparted p7zip* gpart neofetch ffmpeg dconf-editor ffmpegthumbs htop curl git gstreamer-plugins* gstreamer1-plugins* pip kernel-headers kernel-devel gcc glibc-headers make dkms easyeffects cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kdenetwork-filesharing libsmbclient samba samba-usershares kcharselect mcomix3 gscan2pdf unzip gsmartcontrol krename filelight gnome-disk-utility skanlite skanpage kclock kweather viewnior
+	runcheck sudo dnf install -y alien pavucontrol gparted p7zip* gpart neofetch ffmpeg dconf-editor ffmpegthumbs htop curl git gstreamer-plugins* gstreamer1-plugins* pip kernel-headers kernel-devel gcc glibc-headers make dkms easyeffects cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect mcomix3 gscan2pdf unzip gsmartcontrol krename filelight gnome-disk-utility skanlite skanpage kclock kweather viewnior
 	runcheck sudo dnf update -y --refresh
 	runcheck sudo dnf autoremove -y
 	runcheck flatpak install -y flathub com.github.jeromerobert.pdfarranger
@@ -260,7 +259,6 @@ minimal () {
 	runcheck pip install pip wheel speedtest-cli -U
 	runcheck pip cache purge
 	appendbashrc2
-	fixsamba
 	autofontinstall
 	installmiscdrivers
 	finish
@@ -332,14 +330,6 @@ installmiscdrivers () {
 	runcheck sudo dnf --repo=rpmfusion-nonfree-tainted install -y "*-firmware"
 }
 echo "Loaded installmiscdrivers."
-fixsamba () {
-	# runcheck is not used here to allow for running the script multiple times
-	echo "Fixing Samba..."
-	sudo usermod -aG usershares $USER
-	sudo systemctl enable smb
-	sudo setsebool -P samba_enable_home_dirs=1
-}
-echo "Loaded fixsamba."
 runcheck () {
 	IFS=$'\n'
 	command="$*"
