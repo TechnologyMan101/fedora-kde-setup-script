@@ -4,7 +4,7 @@ Bash script to set up a fresh install of Fedora KDE.
 
 # Documentation
 
-Version 5.7
+Version 5.8
 
 Supported Fedora KDE Versions: 38
 
@@ -53,6 +53,6 @@ Minimal Install is recommended. VM Tools can be found at https://mega.nz/folder/
 Switching to the X11 session is recommended for IBus to work properly. The session switcher is located on the login screen near the bottom left corner. 
 
 
-# User Account Switching
+# Fixes
 
-If you use only the X11 session for all users and would like user switching to be functional, run `sudo nano /usr/share/kde-settings/kde-profile/default/xdg/kdeglobals` and comment out the “[KDE Action Restrictions]” section by adding a “#” in front of every line in the section. 
+If the mouse cursor appears very large on the login screen, run `sudo nano /etc/sddm.conf.d/kde_settings.conf` and add “CursorSize=XX” to the “[Theme]” section of the file. Replace XX with the size you want. Usually, it would be 24. 
