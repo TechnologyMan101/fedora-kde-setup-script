@@ -4,7 +4,7 @@ Bash script to set up a fresh install of Fedora KDE.
 
 # Documentation
 
-Version 5.8
+Version 5.9
 
 Supported Fedora KDE Versions: 38
 
