@@ -93,9 +93,9 @@ echo "Loaded sysreqfail."
 mainmenu () {
 	clear
  	tput setaf 3
-	echo "====================================="
-	echo " --- Fedora KDE Setup Script 5.9 ---"
-	echo "====================================="
+	echo "======================================"
+	echo " --- Fedora KDE Setup Script 5.10 ---"
+	echo "======================================"
 	echo "Supported Fedora KDE Versions (x86_64): 38"
 	echo "Recommended Free Space: 40 GB"
 	tput setaf 10
@@ -196,7 +196,7 @@ full () {
 	runcheck flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	runcheck sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig
 	runcheck sudo dnf install -y "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
-	runcheck sudo dnf install -y alien remmina bleachbit frozen-bubble asunder k3b libburn cdrskin pavucontrol easyeffects solaar gparted vlc p7zip* lame gpart neofetch ffmpeg httrack tree android-tools kwave kamoso supertux dconf-editor ffmpegthumbs krita gimp htop transmission-qt qbittorrent curl git handbrake-gui minetest discord java-latest-openjdk gstreamer-plugins* gstreamer1-plugins* pip kernel-headers kernel-devel gcc glibc-headers make dkms cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect kweather mcomix3 VirtualBox gscan2pdf supertuxkart unzip gsmartcontrol dvdstyler skanlite kdenlive kid3 skanpage kclock calibre krename filelight gnome-disk-utility viewnior
+	runcheck sudo dnf install -y alien remmina bleachbit frozen-bubble asunder k3b libburn cdrskin pavucontrol easyeffects solaar gparted vlc p7zip* lame gpart neofetch ffmpeg httrack tree android-tools kwave kamoso supertux dconf-editor ffmpegthumbs krita gimp htop transmission-qt qbittorrent curl git handbrake-gui minetest discord java-latest-openjdk gstreamer-plugins* gstreamer1-plugins* pip kernel-headers kernel-devel gcc glibc-headers make dkms cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect kweather mcomix3 VirtualBox gscan2pdf supertuxkart unzip gsmartcontrol dvdstyler skanlite kdenlive kid3 skanpage kclock krename filelight gnome-disk-utility viewnior
 	javamenu
 	runcheck sudo dnf update -y --refresh
 	runcheck sudo dnf autoremove -y
@@ -213,6 +213,7 @@ full () {
 	runcheck flatpak install -y flathub org.kde.subtitlecomposer
 	runcheck flatpak install -y flathub io.missioncenter.MissionCenter
 	runcheck flatpak install -y flathub org.prismlauncher.PrismLauncher
+	runcheck flatpak install -y flathub com.calibre_ebook.calibre
 	runcheck flatpak update -y
 	runcheck flatpak uninstall -y --unused --delete-data
 	runcheck pip install pip wheel yt-dlp speedtest-cli mangadex-downloader[optional] animdl -U
