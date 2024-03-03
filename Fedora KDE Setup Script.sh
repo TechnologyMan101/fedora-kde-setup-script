@@ -94,7 +94,7 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "======================================"
-	echo " --- Fedora KDE Setup Script 5.13 ---"
+	echo " --- Fedora KDE Setup Script 5.14 ---"
 	echo "======================================"
 	echo "Supported Fedora KDE Versions (x86_64): 39"
 	echo "Recommended Free Space: 40 GB"
@@ -320,7 +320,7 @@ appendbashrc2 () {
 echo "Loaded appendbashrc2."
 autofontinstall () {
 	echo "Installing the Essential Font Pack..."
-	runcheck sudo wget -O "/tmp/fontinstall.zip" "https://github.com/TechnologyMan101/script-extras/releases/download/20221012-1521/Essential.Font.Pack.zip"
+	runcheck sudo wget -O "/tmp/fontinstall.zip" "https://github.com/TechnologyMan101/script-extras/releases/download/20240122-2030/Essential.Font.Pack.zip"
 	sudo rm -rf "/usr/share/fonts/Essential Font Pack"
 	runcheck sudo unzip -o "/tmp/fontinstall.zip" -d "/usr/share/fonts"
 	runcheck sudo chmod -R 755 "/usr/share/fonts/Essential Font Pack"
