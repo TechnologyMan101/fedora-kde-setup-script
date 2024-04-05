@@ -4,7 +4,7 @@ Bash script to set up a fresh install of Fedora KDE.
 
 # Documentation
 
-Version 5.14
+Version 5.16
 
 Supported Fedora KDE Versions: 39
 
@@ -31,13 +31,6 @@ Change “Switch to previous desktop” to “Ctrl+Meta+Left Arrow”
 Change “Make Window Fullscreen” to “Meta+F11”
 
 
-# Plasma Widgets:
-
-This is to be done after running the script!!!
-
-Simple Overview Pager by tuxg0d – replace default pager in taskbar
-
-
 # Run Script:
 
 Mark the script as executable by changing it in file properties or running `chmod +x /path/to/file`. Then run it in Terminal with `bash /path/to/file`
@@ -47,10 +40,6 @@ Mark the script as executable by changing it in file properties or running `chmo
 
 Minimal Install is recommended. VM Tools can be found at https://mega.nz/folder/sBwwxBTR#zf6d3UaJYnNGl5tXaN63ag in Extras or at https://github.com/TechnologyMan101/script-extras/releases.
 
-
-# Other Notes
-
-Switching to the X11 session is recommended for IBus to work properly. The session switcher is located on the login screen near the bottom left corner. 
 
 
 # Fixes
