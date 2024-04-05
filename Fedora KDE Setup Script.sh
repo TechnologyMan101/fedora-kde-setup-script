@@ -71,7 +71,7 @@ echo "Loaded spacewarning."
 sysreqfail () {
 	clear
 	tput setaf 9
-	echo "System requirements not met. This script supports the x86_64 version of Fedora 38 KDE!!!"
+	echo "System requirements not met. This script supports the x86_64 version of Fedora 39 KDE!!!"
 	tput setaf 3
 	echo "If your error is not caused by a wrong Fedora version or OS architecture, please check to see if I have published a script for your system."
 	tput setaf 10
@@ -94,7 +94,7 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "======================================"
-	echo " --- Fedora KDE Setup Script 5.14 ---"
+	echo " --- Fedora KDE Setup Script 5.16 ---"
 	echo "======================================"
 	echo "Supported Fedora KDE Versions (x86_64): 39"
 	echo "Recommended Free Space: 40 GB"
@@ -196,7 +196,7 @@ full () {
 	runcheck flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	runcheck sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig
 	runcheck sudo dnf install -y "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
-	runcheck sudo dnf install -y alien remmina bleachbit frozen-bubble asunder k3b libburn cdrskin pavucontrol easyeffects solaar gparted vlc p7zip* lame gpart neofetch ffmpeg httrack tree android-tools kwave kamoso supertux dconf-editor ffmpegthumbs krita gimp htop transmission-qt qbittorrent curl git handbrake-gui minetest discord java-latest-openjdk gstreamer-plugins* gstreamer1-plugins* pip python3.11 kernel-headers kernel-devel gcc glibc-headers make dkms cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect kweather mcomix3 VirtualBox gscan2pdf supertuxkart unzip gsmartcontrol dvdstyler skanlite kdenlive kid3 skanpage kclock krename filelight gnome-disk-utility viewnior
+	runcheck sudo dnf install -y alien remmina bleachbit frozen-bubble asunder k3b libburn cdrskin pavucontrol easyeffects solaar gparted vlc p7zip* lame gpart neofetch ffmpeg httrack tree android-tools kwave kamoso supertux dconf-editor ffmpegthumbs krita gimp htop transmission-qt qbittorrent curl git handbrake-gui minetest discord java-latest-openjdk gstreamer-plugins* gstreamer1-plugins* pip python3.11 kernel-headers kernel-devel gcc glibc-headers make dkms cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect kweather mcomix3 VirtualBox gscan2pdf supertuxkart unzip gsmartcontrol dvdstyler skanlite kdenlive kid3 skanpage kclock krename filelight gnome-disk-utility viewnior aria2 simple-scan
 	javamenu
 	runcheck sudo dnf update -y --refresh
 	runcheck sudo dnf autoremove -y
@@ -214,10 +214,13 @@ full () {
 	runcheck flatpak install -y flathub io.missioncenter.MissionCenter
 	runcheck flatpak install -y flathub org.prismlauncher.PrismLauncher
 	runcheck flatpak install -y flathub com.calibre_ebook.calibre
+	runcheck flatpak install -y flathub info.febvre.Komikku
+	runcheck flatpak install -y flathub io.github.diegoivan.pdf_metadata_editor
 	runcheck flatpak update -y
 	runcheck flatpak uninstall -y --unused --delete-data
 	runcheck python3.11 -m ensurepip
-	runcheck python3.11 -m pip install pip wheel yt-dlp speedtest-cli mangadex-downloader[optional] animdl git+https://github.com/nathom/streamrip.git@dev -U
+	runcheck python3.11 -m pip install pip wheel speedtest-cli mangadex-downloader[optional] animdl git+https://github.com/nathom/streamrip.git@dev -U
+	runcheck python3.11 -m pip install --pre yt-dlp -U
     runcheck python3.11 -m pip cache purge
 	echo "Adding current user to cdrom group..."
 	runcheck sudo usermod -aG cdrom $USER
@@ -248,7 +251,7 @@ minimal () {
 	runcheck flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	runcheck sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig
 	runcheck sudo dnf install -y "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
-	runcheck sudo dnf install -y alien pavucontrol gparted p7zip* gpart neofetch ffmpeg dconf-editor ffmpegthumbs htop curl git gstreamer-plugins* gstreamer1-plugins* pip python3.11 kernel-headers kernel-devel gcc glibc-headers make dkms easyeffects cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect mcomix3 gscan2pdf unzip gsmartcontrol krename filelight gnome-disk-utility skanlite skanpage kclock kweather viewnior
+	runcheck sudo dnf install -y alien pavucontrol gparted p7zip* gpart neofetch ffmpeg dconf-editor ffmpegthumbs htop curl git gstreamer-plugins* gstreamer1-plugins* pip python3.11 kernel-headers kernel-devel gcc glibc-headers make dkms easyeffects cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect mcomix3 gscan2pdf unzip gsmartcontrol krename filelight gnome-disk-utility skanlite skanpage kclock kweather viewnior aria2 simple-scan
 	runcheck sudo dnf update -y --refresh
 	runcheck sudo dnf autoremove -y
 	runcheck flatpak install -y flathub com.github.jeromerobert.pdfarranger
@@ -256,6 +259,8 @@ minimal () {
 	runcheck flatpak install -y flathub com.github.tchx84.Flatseal
 	runcheck flatpak install -y flathub org.onlyoffice.desktopeditors
 	runcheck flatpak install -y flathub io.missioncenter.MissionCenter
+	runcheck flatpak install -y flathub info.febvre.Komikku
+	runcheck flatpak install -y flathub io.github.diegoivan.pdf_metadata_editor
 	runcheck flatpak update -y
 	runcheck flatpak uninstall -y --unused --delete-data
 	runcheck python3.11 -m ensurepip
@@ -304,7 +309,7 @@ appendbashrc1 () {
 	appendbashrcinfo
 	echo "Adding sysupdate alias and neofetch to .bashrc..."
 	runcheck sed -i '/sysupdate/d' ~/.bashrc
-	runcheck echo 'alias sysupdate="sudo dnf update -y --refresh && sudo dnf autoremove -y && flatpak update -y && flatpak uninstall -y --unused --delete-data && python3.11 -m pip install pip wheel yt-dlp speedtest-cli mangadex-downloader[optional] animdl git+https://github.com/nathom/streamrip.git@dev -U && pip cache purge"' >> ~/.bashrc
+	runcheck echo 'alias sysupdate="sudo dnf update -y --refresh && sudo dnf autoremove -y && flatpak update -y && flatpak uninstall -y --unused --delete-data && python3.11 -m pip install pip wheel speedtest-cli mangadex-downloader[optional] animdl git+https://github.com/nathom/streamrip.git@dev -U && python3.11 -m pip install --pre yt-dlp -U && python3.11 -m pip cache purge"' >> ~/.bashrc
 	runcheck sed -i '/neofetch/d' ~/.bashrc
 	runcheck echo 'neofetch' >> ~/.bashrc
 }
@@ -313,7 +318,7 @@ appendbashrc2 () {
 	appendbashrcinfo
 	echo "Adding sysupdate alias and neofetch to .bashrc..."
 	runcheck sed -i '/sysupdate/d' ~/.bashrc
-	runcheck echo 'alias sysupdate="sudo dnf update -y --refresh && sudo dnf autoremove -y && flatpak update -y && flatpak uninstall -y --unused --delete-data && python3.11 -m pip install pip wheel speedtest-cli -U && pip cache purge"' >> ~/.bashrc
+	runcheck echo 'alias sysupdate="sudo dnf update -y --refresh && sudo dnf autoremove -y && flatpak update -y && flatpak uninstall -y --unused --delete-data && python3.11 -m pip install pip wheel speedtest-cli -U && python3.11 -m pip cache purge"' >> ~/.bashrc
 	runcheck sed -i '/neofetch/d' ~/.bashrc
 	runcheck echo 'neofetch' >> ~/.bashrc
 }
