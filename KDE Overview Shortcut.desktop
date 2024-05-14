@@ -1,0 +1,18 @@
+[Desktop Entry]
+Categories=Utility;
+Comment[en_US]=KDE Overview Shortcut
+Comment=KDE Overview Shortcut
+Exec=qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.invokeShortcut Overview
+GenericName[en_US]=
+GenericName=
+Icon=preferences-system-windows-effect-coverswitch
+MimeType=
+Name[en_US]=KDE Overview Shortcut
+Name=KDE Overview Shortcut
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
