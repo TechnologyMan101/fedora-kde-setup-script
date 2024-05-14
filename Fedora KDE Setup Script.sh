@@ -26,8 +26,8 @@ checkcompatibility () {
 	fi
 	iskde="true"
 
-	# Check for 39
-	if ! echo $VERSION_ID | grep -qi "39"
+	# Check for 40
+	if ! echo $VERSION_ID | grep -qi "40"
 	then
 		sysreqfail
 	fi
@@ -71,7 +71,7 @@ echo "Loaded spacewarning."
 sysreqfail () {
 	clear
 	tput setaf 9
-	echo "System requirements not met. This script supports the x86_64 version of Fedora 39 KDE!!!"
+	echo "System requirements not met. This script supports the x86_64 version of Fedora 40 KDE!!!"
 	tput setaf 3
 	echo "If your error is not caused by a wrong Fedora version or OS architecture, please check to see if I have published a script for your system."
 	tput setaf 10
@@ -94,9 +94,9 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "======================================"
-	echo " --- Fedora KDE Setup Script 5.16 ---"
+	echo " --- Fedora KDE Setup Script 5.17 ---"
 	echo "======================================"
-	echo "Supported Fedora KDE Versions (x86_64): 39"
+	echo "Supported Fedora KDE Versions (x86_64): 40"
 	echo "Recommended Free Space: 40 GB"
 	tput setaf 10
 	echo "Your current distro is $PRETTY_NAME."
@@ -186,18 +186,27 @@ full () {
 	tput sgr0
 	sleep 3
 	clear
+	runcheck sudo dnf install -y fedora-workstation-repositories
 	runcheck sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-	runcheck sudo dnf groupupdate -y core --allowerasing
-	runcheck sudo dnf groupupdate -y multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin --allowerasing
-	runcheck sudo dnf groupupdate -y sound-and-video --allowerasing
+	runcheck sudo dnf config-manager -y --enable fedora-cisco-openh264
+	runcheck sudo dnf config-manager -y --enable google-chrome
+	runcheck sudo dnf config-manager -y --enable copr:copr.fedorainfracloud.org:phracek:PyCharm
+	runcheck sudo dnf config-manager -y --enable rpmfusion-nonfree-nvidia-driver
+	runcheck sudo dnf config-manager -y --enable rpmfusion-nonfree-steam
+	runcheck sudo dnf groupupdate -y core
+	runcheck sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
+	runcheck sudo dnf groupupdate -y multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+	runcheck sudo dnf groupupdate -y sound-and-video
 	runcheck sudo dnf install -y rpmfusion-free-release-tainted
 	runcheck sudo dnf install -y libdvdcss
 	runcheck sudo dnf install -y rpmfusion-nonfree-release-tainted
 	runcheck flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	runcheck sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig
 	runcheck sudo dnf install -y "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
-	runcheck sudo dnf install -y alien remmina bleachbit frozen-bubble asunder k3b libburn cdrskin pavucontrol easyeffects solaar gparted vlc p7zip* lame gpart neofetch ffmpeg httrack tree android-tools kwave kamoso supertux dconf-editor ffmpegthumbs krita gimp htop transmission-qt qbittorrent curl git handbrake-gui minetest discord java-latest-openjdk gstreamer-plugins* gstreamer1-plugins* pip python3.11 kernel-headers kernel-devel gcc glibc-headers make dkms cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect kweather mcomix3 VirtualBox gscan2pdf supertuxkart unzip gsmartcontrol dvdstyler skanlite kdenlive kid3 skanpage kclock krename filelight gnome-disk-utility viewnior aria2 simple-scan
+	runcheck sudo dnf install -y alien remmina bleachbit frozen-bubble asunder k3b libburn cdrskin pavucontrol easyeffects solaar gparted vlc p7zip* lame gpart neofetch ffmpeg httrack tree android-tools kwave kamoso supertux dconf-editor ffmpegthumbs krita gimp htop transmission-qt qbittorrent curl git handbrake-gui minetest discord java-latest-openjdk gstreamer-plugins* gstreamer1-plugins* pip python3.11 google-chrome-stable kernel-headers kernel-devel gcc glibc-headers make dkms cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect kweather mcomix3 VirtualBox gscan2pdf supertuxkart unzip gsmartcontrol dvdstyler skanlite kdenlive kid3 skanpage kclock krename filelight gnome-disk-utility viewnior aria2 simple-scan qt hugin
 	javamenu
+	runcheck sudo dnf copr enable -y g3tchoo/prismlauncher
+	runcheck sudo dnf install -y prismlauncher
 	runcheck sudo dnf update -y --refresh
 	runcheck sudo dnf autoremove -y
 	runcheck flatpak install -y flathub org.audacityteam.Audacity
@@ -212,7 +221,6 @@ full () {
 	runcheck flatpak install -y flathub net.lutris.Lutris
 	runcheck flatpak install -y flathub org.kde.subtitlecomposer
 	runcheck flatpak install -y flathub io.missioncenter.MissionCenter
-	runcheck flatpak install -y flathub org.prismlauncher.PrismLauncher
 	runcheck flatpak install -y flathub com.calibre_ebook.calibre
 	runcheck flatpak install -y flathub info.febvre.Komikku
 	runcheck flatpak install -y flathub io.github.diegoivan.pdf_metadata_editor
@@ -241,17 +249,24 @@ minimal () {
 	tput sgr0
 	sleep 3
 	clear
+	runcheck sudo dnf install -y fedora-workstation-repositories
 	runcheck sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-	runcheck sudo dnf groupupdate -y core --allowerasing
-	runcheck sudo dnf groupupdate -y multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin --allowerasing
-	runcheck sudo dnf groupupdate -y sound-and-video --allowerasing
+	runcheck sudo dnf config-manager -y --enable fedora-cisco-openh264
+	runcheck sudo dnf config-manager -y --enable google-chrome
+	runcheck sudo dnf config-manager -y --enable copr:copr.fedorainfracloud.org:phracek:PyCharm
+	runcheck sudo dnf config-manager -y --enable rpmfusion-nonfree-nvidia-driver
+	runcheck sudo dnf config-manager -y --enable rpmfusion-nonfree-steam
+	runcheck sudo dnf groupupdate -y core
+	runcheck sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
+	runcheck sudo dnf groupupdate -y multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+	runcheck sudo dnf groupupdate -y sound-and-video
 	runcheck sudo dnf install -y rpmfusion-free-release-tainted
 	runcheck sudo dnf install -y libdvdcss
 	runcheck sudo dnf install -y rpmfusion-nonfree-release-tainted
 	runcheck flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	runcheck sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig
 	runcheck sudo dnf install -y "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
-	runcheck sudo dnf install -y alien pavucontrol gparted p7zip* gpart neofetch ffmpeg dconf-editor ffmpegthumbs htop curl git gstreamer-plugins* gstreamer1-plugins* pip python3.11 kernel-headers kernel-devel gcc glibc-headers make dkms easyeffects cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect mcomix3 gscan2pdf unzip gsmartcontrol krename filelight gnome-disk-utility skanlite skanpage kclock kweather viewnior aria2 simple-scan
+	runcheck sudo dnf install -y alien pavucontrol gparted p7zip* gpart neofetch ffmpeg dconf-editor ffmpegthumbs htop curl git gstreamer-plugins* gstreamer1-plugins* pip python3.11 google-chrome-stable kernel-headers kernel-devel gcc glibc-headers make dkms easyeffects cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect mcomix3 gscan2pdf unzip gsmartcontrol krename filelight gnome-disk-utility skanlite skanpage kclock kweather viewnior aria2 simple-scan qt hugin
 	runcheck sudo dnf update -y --refresh
 	runcheck sudo dnf autoremove -y
 	runcheck flatpak install -y flathub com.github.jeromerobert.pdfarranger
