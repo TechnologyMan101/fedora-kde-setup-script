@@ -26,8 +26,8 @@ checkcompatibility () {
 	fi
 	iskde="true"
 
-	# Check for 42
-	if ! echo $VERSION_ID | grep -qi "42"
+	# Check for 44
+	if ! echo $VERSION_ID | grep -qi "44"
 	then
 		sysreqfail
 	fi
@@ -71,7 +71,7 @@ echo "Loaded spacewarning."
 sysreqfail () {
 	clear
 	tput setaf 9
-	echo "System requirements not met. This script supports the x86_64 version of Fedora 42 KDE!!!"
+	echo "System requirements not met. This script supports the x86_64 version of Fedora 44 KDE!!!"
 	tput setaf 3
 	echo "If your error is not caused by a wrong Fedora version or OS architecture, please check to see if I have published a script for your system."
 	tput setaf 10
@@ -94,9 +94,9 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "======================================"
-	echo " --- Fedora KDE Setup Script 5.21 ---"
+	echo " --- Fedora KDE Setup Script 5.24 ---"
 	echo "======================================"
-	echo "Supported Fedora KDE Versions (x86_64): 42"
+	echo "Supported Fedora KDE Versions (x86_64): 44"
 	echo "Recommended Free Space: 40 GB"
 	tput setaf 10
 	echo "Your current distro is $PRETTY_NAME."
@@ -194,6 +194,7 @@ full () {
 	runcheck sudo dnf config-manager -y setopt rpmfusion-nonfree-nvidia-driver.enabled=1
 	runcheck sudo dnf config-manager -y setopt rpmfusion-nonfree-steam.enabled=1
 	runcheck sudo dnf update -y @core
+	runcheck sudo dnf install -y rpmfusion-\*-appstream-data
 	runcheck sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
 	runcheck sudo dnf update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 	runcheck sudo dnf install -y rpmfusion-free-release-tainted
@@ -201,8 +202,8 @@ full () {
 	runcheck sudo dnf install -y rpmfusion-nonfree-release-tainted
 	runcheck flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	runcheck sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig
-	runcheck sudo dnf install -y "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
-	runcheck sudo dnf install -y alien remmina bleachbit frozen-bubble asunder k3b libburn cdrskin pavucontrol easyeffects solaar gparted vlc p7zip* lame gpart fastfetch fastfetch-bash-completion ffmpeg httrack tree android-tools kwave kamoso supertux dconf-editor ffmpegthumbs krita gimp htop transmission-qt qbittorrent curl git handbrake-gui minetest discord java-latest-openjdk gstreamer-plugins* gstreamer1-plugins* pip python3 google-chrome-stable kernel-headers kernel-devel gcc glibc-headers make dkms cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect kweather mcomix3 VirtualBox gscan2pdf supertuxkart unzip gsmartcontrol dvdstyler skanlite kdenlive kid3 skanpage kclock krename filelight gnome-disk-utility viewnior aria2 simple-scan qt hugin kalk tesseract-langpack-eng tesseract-langpack-deu tesseract-langpack-jpn tesseract-langpack-tha vcdimager
+	runcheck sudo rpm --replacepkgs --nodigest -i "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
+	runcheck sudo dnf install -y alien remmina bleachbit frozen-bubble asunder k3b libburn cdrskin pavucontrol easyeffects solaar gparted vlc 7zip p7zip* lame gpart fastfetch fastfetch-bash-completion ffmpeg httrack tree android-tools kwave kamoso supertux dconf-editor ffmpegthumbs krita gimp htop transmission-qt qbittorrent curl git handbrake-gui minetest discord java-latest-openjdk gstreamer-plugins* gstreamer1-plugins* pip python3 google-chrome-stable kernel-headers kernel-devel gcc glibc-headers make dkms cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect kweather mcomix3 VirtualBox gscan2pdf supertuxkart unzip gsmartcontrol skanlite kdenlive kid3 skanpage kclock krename filelight gnome-disk-utility viewnior aria2 simple-scan qt hugin kalk tesseract-langpack-eng tesseract-langpack-deu tesseract-langpack-jpn tesseract-langpack-tha vcdimager plasma-oxygen
 	javamenu
 	runcheck sudo dnf copr enable -y g3tchoo/prismlauncher
 	runcheck sudo dnf install -y prismlauncher
@@ -255,6 +256,7 @@ minimal () {
 	runcheck sudo dnf config-manager -y setopt rpmfusion-nonfree-nvidia-driver.enabled=1
 	runcheck sudo dnf config-manager -y setopt rpmfusion-nonfree-steam.enabled=1
 	runcheck sudo dnf update -y @core
+	runcheck sudo dnf install -y rpmfusion-\*-appstream-data
 	runcheck sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
 	runcheck sudo dnf update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 	runcheck sudo dnf install -y rpmfusion-free-release-tainted
@@ -262,8 +264,8 @@ minimal () {
 	runcheck sudo dnf install -y rpmfusion-nonfree-release-tainted
 	runcheck flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	runcheck sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig
-	runcheck sudo dnf install -y "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
-	runcheck sudo dnf install -y alien pavucontrol gparted p7zip* gpart fastfetch fastfetch-bash-completion ffmpeg dconf-editor ffmpegthumbs htop curl git gstreamer-plugins* gstreamer1-plugins* pip python3 google-chrome-stable kernel-headers kernel-devel gcc glibc-headers make dkms easyeffects cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect mcomix3 gscan2pdf unzip gsmartcontrol krename filelight gnome-disk-utility skanlite skanpage kclock kweather viewnior aria2 simple-scan qt hugin kalk tesseract-langpack-eng tesseract-langpack-deu tesseract-langpack-jpn tesseract-langpack-tha
+	runcheck sudo rpm --replacepkgs --nodigest -i "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
+	runcheck sudo dnf install -y alien pavucontrol gparted 7zip p7zip* gpart fastfetch fastfetch-bash-completion ffmpeg dconf-editor ffmpegthumbs htop curl git gstreamer-plugins* gstreamer1-plugins* pip python3 google-chrome-stable kernel-headers kernel-devel gcc glibc-headers make dkms easyeffects cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect mcomix3 gscan2pdf unzip gsmartcontrol krename filelight gnome-disk-utility skanlite skanpage kclock kweather viewnior aria2 simple-scan qt hugin kalk tesseract-langpack-eng tesseract-langpack-deu tesseract-langpack-jpn tesseract-langpack-tha plasma-oxygen
 	runcheck sudo dnf update -y --refresh
 	runcheck sudo dnf autoremove -y
 	runcheck flatpak install -y flathub com.github.jeromerobert.pdfarranger
@@ -345,7 +347,8 @@ autofontinstall () {
 echo "Loaded autofontinstall."
 installmiscdrivers () {
 	echo "Installing miscellaneous drivers from RPM Fusion..."
-	runcheck sudo dnf install -y intel-media-driver libva-intel-driver nvidia-vaapi-driver
+	runcheck sudo dnf install -y intel-media-driver libva-intel-driver libva-nvidia-driver.{i686,x86_64}
+	runcheck sudo dnf install -y mesa-va-drivers-freeworld mesa-va-drivers-freeworld.i686
 	runcheck sudo dnf --repo=rpmfusion-nonfree-tainted install -y "*-firmware"
 }
 echo "Loaded installmiscdrivers."
