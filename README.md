@@ -4,9 +4,9 @@ Bash script to set up a fresh install of Fedora KDE.
 
 # Documentation
 
-Version 5.21
+Version 5.24
 
-Supported Fedora KDE Versions: 42
+Supported Fedora KDE Versions: 44
 
 Recommended Free Space: 40 GB
 
