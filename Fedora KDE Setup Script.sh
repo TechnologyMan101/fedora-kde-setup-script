@@ -94,7 +94,7 @@ mainmenu () {
 	clear
  	tput setaf 3
 	echo "======================================"
-	echo " --- Fedora KDE Setup Script 5.24 ---"
+	echo " --- Fedora KDE Setup Script 5.25 ---"
 	echo "======================================"
 	echo "Supported Fedora KDE Versions (x86_64): 44"
 	echo "Recommended Free Space: 40 GB"
@@ -203,7 +203,7 @@ full () {
 	runcheck flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	runcheck sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig
 	runcheck sudo rpm --replacepkgs --nodigest -i "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
-	runcheck sudo dnf install -y alien remmina bleachbit frozen-bubble asunder k3b libburn cdrskin pavucontrol easyeffects solaar gparted vlc 7zip p7zip* lame gpart fastfetch fastfetch-bash-completion ffmpeg httrack tree android-tools kwave kamoso supertux dconf-editor ffmpegthumbs krita gimp htop transmission-qt qbittorrent curl git handbrake-gui minetest discord java-latest-openjdk gstreamer-plugins* gstreamer1-plugins* pip python3 google-chrome-stable kernel-headers kernel-devel gcc glibc-headers make dkms cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect kweather mcomix3 VirtualBox gscan2pdf supertuxkart unzip gsmartcontrol skanlite kdenlive kid3 skanpage kclock krename filelight gnome-disk-utility viewnior aria2 simple-scan qt hugin kalk tesseract-langpack-eng tesseract-langpack-deu tesseract-langpack-jpn tesseract-langpack-tha vcdimager plasma-oxygen
+	runcheck sudo dnf install -y alien remmina bleachbit frozen-bubble asunder k3b libburn cdrskin pavucontrol easyeffects solaar gparted vlc 7zip p7zip* lame gpart fastfetch fastfetch-bash-completion ffmpeg httrack tree android-tools kwave kamoso supertux dconf-editor ffmpegthumbs krita gimp htop transmission-qt qbittorrent curl git handbrake-gui minetest discord java-latest-openjdk gstreamer-plugins* gstreamer1-plugins* pip python3 google-chrome-stable kernel-headers kernel-devel gcc glibc-headers make dkms cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect kweather mcomix3 VirtualBox gscan2pdf supertuxkart unzip gsmartcontrol skanlite kdenlive kid3 skanpage kclock krename filelight gnome-disk-utility viewnior aria2 simple-scan qt hugin kalk tesseract-langpack-eng tesseract-langpack-deu tesseract-langpack-jpn tesseract-langpack-tha vcdimager plasma-oxygen lm_sensors
 	javamenu
 	runcheck sudo dnf copr enable -y g3tchoo/prismlauncher
 	runcheck sudo dnf install -y prismlauncher
@@ -265,7 +265,7 @@ minimal () {
 	runcheck flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	runcheck sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig
 	runcheck sudo rpm --replacepkgs --nodigest -i "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
-	runcheck sudo dnf install -y alien pavucontrol gparted 7zip p7zip* gpart fastfetch fastfetch-bash-completion ffmpeg dconf-editor ffmpegthumbs htop curl git gstreamer-plugins* gstreamer1-plugins* pip python3 google-chrome-stable kernel-headers kernel-devel gcc glibc-headers make dkms easyeffects cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect mcomix3 gscan2pdf unzip gsmartcontrol krename filelight gnome-disk-utility skanlite skanpage kclock kweather viewnior aria2 simple-scan qt hugin kalk tesseract-langpack-eng tesseract-langpack-deu tesseract-langpack-jpn tesseract-langpack-tha plasma-oxygen
+	runcheck sudo dnf install -y alien pavucontrol gparted 7zip p7zip* gpart fastfetch fastfetch-bash-completion ffmpeg dconf-editor ffmpegthumbs htop curl git gstreamer-plugins* gstreamer1-plugins* pip python3 google-chrome-stable kernel-headers kernel-devel gcc glibc-headers make dkms easyeffects cpu-x libheif libquicktime gdk-pixbuf2 kf5-kimageformats kcharselect mcomix3 gscan2pdf unzip gsmartcontrol krename filelight gnome-disk-utility skanlite skanpage kclock kweather viewnior aria2 simple-scan qt hugin kalk tesseract-langpack-eng tesseract-langpack-deu tesseract-langpack-jpn tesseract-langpack-tha plasma-oxygen lm_sensors
 	runcheck sudo dnf update -y --refresh
 	runcheck sudo dnf autoremove -y
 	runcheck flatpak install -y flathub com.github.jeromerobert.pdfarranger
