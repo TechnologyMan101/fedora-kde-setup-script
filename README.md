@@ -4,7 +4,7 @@ Bash script to set up a fresh install of Fedora KDE.
 
 # Documentation
 
-Version 5.25
+Version 5.26
 
 Supported Fedora KDE Versions: 44
 
@@ -43,20 +43,6 @@ Add shortcut for “Media playback previous” using the keys “Ctrl+Alt+Home�
 Add shortcut for “Play/Pause media playback” using the keys “Ctrl+Alt+Shift+Up”
 
 Add shortcut for “Make Window Fullscreen” using the keys “Meta+F11”
-
-Enable default shortcut for “Switch One Desktop to the Left”
-
-Enable default shortcut for “Switch One Desktop to the Right”
-
-
-# Firefox Users:
-
-In `about:config`, set `widget.use-xdg-desktop-portal.file-picker` to `1` in order to make the browser use the KDE’s native file picker instead of the one from GTK. 
-
-
-# Flatpak Applications and Cursor Themes:
-
-This issue mainly affects users on Wayland, which is the only session available on Fedora 40 KDE and above. If a Flatpak application displays a incorrect cursor theme or size, run `mkdir -p ~/.local/share/icons/default/ && nano ~/.local/share/icons/default/index.theme` in Terminal and type `[Icon Theme]`, then press Enter and type `Inherits=breeze_cursors`. Save the file by pressing Ctrl+X, then `y`, and then Enter. Make sure to change these variable values as appropriate to your system, as these follow KDE defaults. For example, if you use the white variant of the default Breeze cursors, change the value of the `Inherits` property to `Breeze_Light`. 
 
 
 # Overview Shortcut:
